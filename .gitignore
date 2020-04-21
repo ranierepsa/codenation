@@ -1,0 +1,4 @@
+*.txt
+data-science-0/__pycache__/*
+data-science-0/outout.xml
+coestatistica-1/Other Solution.ipynb
