@@ -1,3 +1,4 @@
+.ipynb_checkpoints/
 *.txt
 data-science-0/__pycache__/*
 data-science-0/outout.xml
