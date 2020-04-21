@@ -1,5 +1,7 @@
 .ipynb_checkpoints/
+.pytest_cache/
+__pycache__/
+
 *.txt
-data-science-0/__pycache__/*
-data-science-0/outout.xml
+data-science-0/output.xml
 coestatistica-1/Other Solution.ipynb
