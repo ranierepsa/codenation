@@ -3,5 +3,7 @@
 __pycache__/
 
 *.txt
-data-science-0/output.xml
+*.arff
+*.csv
+output.xml
 coestatistica-1/Other Solution.ipynb
