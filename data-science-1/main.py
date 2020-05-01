@@ -66,11 +66,11 @@ sns.distplot(dataframe.normal)
 # 
 # Em outra palavras, sejam `q1_norm`, `q2_norm` e `q3_norm` os quantis da variável `normal` e `q1_binom`, `q2_binom` e `q3_binom` os quantis da variável `binom`, qual a diferença `(q1_norm - q1 binom, q2_norm - q2_binom, q3_norm - q3_binom)`?
 
-# In[6]:
+# In[22]:
 
 
 def q1():
-    quantis = dataframe.describe().iloc[4:7]
+    quantis = dataframe.quantile([.25, .5, .75])
     norm = quantis['normal']
     binom = quantis['binomial']
     return tuple(np.round((norm - binom).values, 3))
@@ -189,20 +189,18 @@ sns.distplot(mean_profile_no_pulsar_std)
 # 
 # Quais as probabilidade associadas a esses quantis utilizando a CDF empírica da variável `false_pulsar_mean_profile_standardized`? Responda como uma tupla de três elementos arredondados para três casas decimais.
 
-# In[13]:
+# In[32]:
 
 
 def q4():
     # Values for 80%, 90% e 95% logical quantis
-    q80 = sct.norm.ppf(0.80)
-    q90 = sct.norm.ppf(0.90)
-    q95 = sct.norm.ppf(0.95)
+    logical_quantis = sct.norm.ppf([.8, .9, .95])
 
     # Fitting ECDF
     ecdf = ECDF(mean_profile_no_pulsar_std)
 
     # Returning the probability for the given quantis
-    return (round(ecdf(q80), 3), round(ecdf(q90), 3), round(ecdf(q95), 3))
+    return tuple(np.round(ecdf(logical_quantis), 3))
 
 
 # Para refletir:
@@ -214,30 +212,16 @@ def q4():
 # 
 # Qual a diferença entre os quantis Q1, Q2 e Q3 de `false_pulsar_mean_profile_standardized` e os mesmos quantis teóricos de uma distribuição normal de média 0 e variância 1? Responda como uma tupla de três elementos arredondados para três casas decimais.
 
-# In[14]:
-
-
-def get_Nth_value_from_series(values, n):
-    count = len(values)
-    sorted_values = sorted(values)
-    return sorted_values[int(count * n)]
-
-
-# In[15]:
+# In[37]:
 
 
 def q5():
     # Teorical quantis values
-    q1_teoric = sct.norm.ppf(0.25, loc=0, scale=1)
-    q2_teoric = sct.norm.ppf(0.50, loc=0, scale=1)
-    q3_teoric = sct.norm.ppf(0.75, loc=0, scale=1)
+    logical_quantis = sct.norm.ppf([.25, .5, .75])
+    # Quantis values
+    quantis = mean_profile_no_pulsar_std.quantile([.25, .5, .75])
     
-    # Difference between quantis and the logical quantis
-    diff25 = get_Nth_value_from_series(mean_profile_no_pulsar_std, 0.25) - q1_teoric
-    diff50 = get_Nth_value_from_series(mean_profile_no_pulsar_std, 0.50) - q2_teoric
-    diff75 = get_Nth_value_from_series(mean_profile_no_pulsar_std, 0.75) - q3_teoric
-    
-    return (round(diff25, 3), round(diff50, 3), round(diff75, 3))
+    return tuple(np.round(quantis - logical_quantis, 3))
 
 
 # Para refletir:
