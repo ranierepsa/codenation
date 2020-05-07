@@ -1,4 +1,4 @@
-# Codenation
+# Codenation Data Science
 
 ### Weekly Challenges
 
