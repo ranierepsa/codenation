@@ -173,8 +173,9 @@ def q4():
 
 def q5():
     alpha = 0.05/2
-    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'BRA']['height'].dropna(),
-                            athletes[athletes['nationality'] == 'USA']['height'].dropna(), equal_var=False)[1]
+    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'BRA']['height'],
+                        athletes[athletes['nationality'] == 'USA']['height'], 
+                        equal_var=False, nan_policy='omit').pvalue
     return bool(p_value > alpha)
 
 
@@ -187,8 +188,9 @@ def q5():
 
 def q6():
     alpha = 0.05/2
-    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'BRA']['height'].dropna(),
-                            athletes[athletes['nationality'] == 'CAN']['height'].dropna(), equal_var=False)[1]
+    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'BRA']['height'],
+                            athletes[athletes['nationality'] == 'CAN']['height'], 
+                            equal_var=False, nan_policy='omit').pvalue
     return bool(p_value > alpha)
 
 
@@ -200,8 +202,9 @@ def q6():
 
 
 def q7():
-    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'USA']['height'].dropna(),
-                            athletes[athletes['nationality'] == 'CAN']['height'].dropna(), equal_var=False)[1]
+    p_value = sct.ttest_ind(athletes[athletes['nationality'] == 'USA']['height'],
+                            athletes[athletes['nationality'] == 'CAN']['height'], 
+                            equal_var=False, nan_policy='omit').pvalue
     return float(round(p_value, 8))
 
 
