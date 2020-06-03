@@ -9,4 +9,4 @@
 * [Week 6 Challenge](data-science-3) - Feature Selection (PCA and RFE)
 * [Week 7 Challenge](data-science-4) - Feature Engineering
 * [Week 8 Challenge](enem-2) - Regression
-* Week 9 Challenge
+* [Week 9 Challenge](enem-4) - Classification
