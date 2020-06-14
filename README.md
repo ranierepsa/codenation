@@ -10,3 +10,4 @@
 * [Week 7 Challenge](data-science-4) - Feature Engineering
 * [Week 8 Challenge](enem-2) - Regression
 * [Week 9 Challenge](enem-4) - Classification
+* [Week 10 Challenge](lead-recommendation) - Final Project - Lead Recommendation
