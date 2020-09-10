@@ -1,4 +1,7 @@
-# Codenation Data Science
+# Codenation Data Science Course Challenges
+
+## About
+  In this repository I'm sharing my solutions for the Codenation Data Science course challenges.
 
 ### Weekly Challenges
 
